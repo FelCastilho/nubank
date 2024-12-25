@@ -22,11 +22,8 @@ body{
 
     scroll-behavior: smooth;
 
-    background-color: #1a1a1a;
+    background-color: $white-dark;
 
-    @include responsive(s){
-        background-color: red;
-    }
 }
 
 svg, img{
