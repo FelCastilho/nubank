@@ -28,8 +28,6 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    background-color: gray;
-
     //chamando a versão de celular
     @include responsive(s){ 
         display: none;
@@ -45,6 +43,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    z-index: 999;
 }
 
 //Desktop
@@ -72,9 +72,8 @@ header {
 
     .menu-item{
         margin-left: 16px;
+        position: relative;
     }
-
-    background-color: green;
 }
 
 .nav-link-desktop{
@@ -109,21 +108,224 @@ header {
     }
 }
 
-//Mobile
-.navbar-mobile{
-    display: none;
+.dropdown-menu{
+    padding: 16px 24px;
+    background-color: $white-light;
+    border-radius: 16px;
 
-    //chamando a versão de celular
-    @include responsive(s){ 
-        display: block;
+    box-shadow: 0px 51px 80px rgba(169, 80, 196, 0.08),
+    0px 15.375px 24.1177px rgba(169, 80, 196, 0.0521271),
+    0px 6.38599px 10.0172px rgba(169, 80, 196, 0.04),
+    0px 2.39069px 3.62304px rgba(169, 80, 196, 0.0278729);
+
+    list-style: none;
+    
+    position: absolute;
+    top: 48px;
+    left: 24px;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+    //Fazendo o menu desaparecer
+    opacity: 0;
+    pointer-events: none;
+    
+    transition: .7s ease;
+
+    .dropdown-item{
+        //Fazendo todos os links ficar do mesmo tamanho
+        width: 100%;
+    }    
+}
+
+//Classe para ligar os links
+.active-dropdown-menu{
+    pointer-events: all;
+    opacity: 1;
+}
+
+//Efeito da barrinha nos links
+.nav-link-dropdown{
+    display: inline-block;
+    width: 100%;
+    padding: 8px 16px;
+
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 0;
+        transition: .5s ease;
+
+        width: 0%;
+        height: 2px;
+
+        background-color: $secondary-normal;
+    }
+
+    //Fazendo a barrinha crescer
+    &:hover{
+        &::after{
+            width: 100%;
+        }
     }
 }
 
-.menu-mobile{
+//Mobile
+.navbar-mobile{
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 10px 24px;
+
+    //Escondendo ele no desktop
     display: none;
 
     //chamando a versão de celular
     @include responsive(s){ 
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+//Menu hamburguer (icon)
+.bx{
+    width: 48px;
+    height: 48px;
+
+    z-index: 999;
+    cursor: pointer;
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: 17%;
+        transition: .7s ease;
+
+        width: 70%;
+        height: 2px;
+
+        background-color: $primary-normal;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 64%;
+        left: 17%;
+        transition: .7s ease;
+
+        width: 70%;
+        height: 2px;
+
+        background-color: $primary-normal;
+    }
+}
+
+//toggle das duas classes bx
+.active-bx{
+    width: 48px;
+    height: 48px;
+
+    z-index: 999;
+    cursor: pointer;
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 17%;
+
+        transform: rotate(-135deg);
+
+        width: 70%;
+        height: 2px;
+
+        background-color: $primary-normal;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 17%;
+
+        transform: rotate(315deg);
+
+        width: 70%;
+        height: 2px;
+
+        background-color: $primary-normal;
+    }
+}
+
+//Menu aberto mobile
+.menu-mobile{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: $white-normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //Desativando o menu
+    opacity: 0;
+    pointer-events: none;
+    
+    transform: translate3d(0,-100px,0);
+    transition: 1s ease;
+}
+
+.active-menu-mobile{
+    //Ativando o menu
+    opacity: 1;
+    pointer-events: all;
+}
+
+.nav-list-mobile{
+    max-width: $container-xl;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link-mobile{
+    display: inline-block;
+    padding: 16px 24px;
+    
+    color: $gray-2;
+    @include typeface-1(h3, desktop);
+
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 16px;
+
+        width: 0;
+        height: 3px;
+        transition: 1s ease;
+
+        background-color: $secondary-normal;
+    }
+
+    &:hover{
+        color: $primary-normal;
+
+        &::after{
+            width: 100%;
+        }
     }
 }
