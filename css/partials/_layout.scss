@@ -143,3 +143,11 @@ $container-s: 540px;
 }
 
 // --------------
+
+.hero{
+    height: 90vh;
+
+    @include responsive(s){
+        height: auto;
+    }
+}
