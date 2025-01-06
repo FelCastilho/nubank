@@ -31,3 +31,42 @@ a {
     }
 
 }
+
+.link{
+    display: inline-block;
+    color: $primary-normal;
+    font-size: 18px;
+    padding: 16px 16px 16px 40px;
+
+    background-image: url('../svg/icon-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+
+    position: relative;
+    
+    &::after{
+        content: '';
+        position: absolute;
+        display: block;
+
+        top: 75%;
+        left: 56px;
+
+        background-color: $secondary-light;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+
+        transition: .5s ease;
+    }
+
+    &:hover{
+        opacity: 0.8;
+        padding-left: 64px;
+        background-position: 8px 50%;
+        
+        &::after{
+            width: 100%;
+        }
+    }
+}
