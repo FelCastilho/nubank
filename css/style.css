@@ -176,6 +176,39 @@
   }
 }
 
+.bg-invite {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-bg-invite {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+@media screen and (max-width: 960px) {
+  .svg-bg-invite {
+    width: 150%;
+  }
+}
+
+.fignu5-ball1 {
+  animation: translate-ball 4s ease infinite alternate;
+}
+
+@keyframes translate-ball {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(200px, -100px, 0);
+  }
+}
 h1 {
   color: #161617;
   font-family: "Sora", sans-serif;
