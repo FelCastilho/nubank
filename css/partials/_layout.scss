@@ -74,7 +74,19 @@ $container-s: 540px;
 
 // ------------
 
-//Classes para facilitar o uso 
+//Classes para facilitar o uso
+
+.flex-spacebetween{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-top{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
 .flex-start {
     display: flex;
@@ -270,15 +282,19 @@ $container-s: 540px;
     }
 }
 
-.fignu5-ball1{
-    animation: translate-ball 4s ease infinite alternate;
+.list {
+    list-style: none;
+
+    li {
+        margin-bottom: 12px;
+    }
+
+    a {
+        color: $secondary-light;
+    }
 }
 
-@keyframes translate-ball{
-    0%{
-        transform: translate3d(0,0,0);
-    }
-    100%{
-        transform: translate3d(200px,-100px,0);
-    }
+.bt-purple{
+    border-top: 1px solid $secondary-light;
 }
+
