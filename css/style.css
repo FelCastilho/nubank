@@ -711,6 +711,11 @@ a:hover {
   padding-bottom: 128px;
 }
 
+.my-2-5 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1198,6 +1203,12 @@ header {
 
 footer {
   background: linear-gradient(220.94deg, #a950c4 14.43%, #82269e 85.28%);
+}
+
+@media screen and (max-width: 960px) {
+  .footer-text {
+    margin-left: 16px;
+  }
 }
 
 .div-card {

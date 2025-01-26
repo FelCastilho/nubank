@@ -1,3 +1,9 @@
 footer {
     background: linear-gradient(220.94deg, #a950c4 14.43%, #82269e 85.28%);
 }
+
+.footer-text{
+    @include responsive(s){
+        margin-left: 16px;
+    }
+}
