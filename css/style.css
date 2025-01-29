@@ -1537,4 +1537,10 @@ footer {
   100% {
     transform: translate3d(200px, -100px, 0);
   }
+}
+.logo-header:hover {
+  stroke-width: 4;
+  stroke-dasharray: 1 400;
+  stroke-opacity: 0;
+  animation: fig4nu-letter 4s infinite alternate;
 }/*# sourceMappingURL=style.css.map */
